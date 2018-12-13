@@ -1,0 +1,38 @@
+{{# post}}
+    <li class="list-group-item">
+        <div class="lead">
+            <a href="/posts/{{this._id}}" class="lead">{{this.title}}</a>
+
+        </div>
+        <p>{{this.summary}}</p>
+        <a href="{{this.url}}" target="_blank">{{this.url}}<a>
+                <a href="/n/{{this.subreddit}}">
+                    <div class="text-right">{{this.subreddit}}</div>
+                </a>
+                <!-- Authors name should display not ID -->
+                <small> Posted By: {{this.author.username}} </small>
+    </li>
+
+
+ <form action="/posts/{{this._id}}/comments" method="post">
+        <textarea class='form-control' name="content" placeholder="Comment"></textarea>
+        <div class="text-right">
+            <button type="submit">Save</button>
+        </div>
+    </form>
+    <h3>Comments</h3>
+    <hr>
+
+
+<div class="post-comments">
+  <!-- Use #each to display HTML or a partial for each item in an array -->
+  {{#each this.comments}}
+  <!-- <hr> -->
+ <!-- <p> {{this.content}}</p> -->
+<!-- <small>{{this.author}}</small> -->
+  <br>
+    {{> comment}}
+  {{/each}}
+{{/ post}}
+
+</div>

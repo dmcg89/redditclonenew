@@ -1,0 +1,17 @@
+<style media="screen">
+.comment-indent {
+margin-left: 25px;
+}
+</style>
+<div class="col-xs-12 comment-indent">
+  <p>{{this.content}}</p>
+
+  <small>{{this.author.username}}</small>
+
+  <a href="/posts/{{this.postId}}/comments/{{this._id}}/replies/new">Reply</a>
+  <hr>
+
+  {{#each this.comments}}
+    {{> comment}}
+  {{/each }}
+</div>
